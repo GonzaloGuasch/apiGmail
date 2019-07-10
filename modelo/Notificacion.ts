@@ -1,11 +1,14 @@
 import {Usuario} from "./Usuario.js";
+import {AdministradorDeMail} from "./AdministradorDeMail";
 
 export class Notificacion {
 
     private listOfSubscriptions: {[artist: number]: Usuario[]};
+    private mail: AdministradorDeMail;
 
     constructor(){
         this.listOfSubscriptions = {};
+        this.mail = new AdministradorDeMail();
     }
 
 
@@ -59,5 +62,12 @@ export class Notificacion {
 
     todasLasSuscripcionesDe(artistId: number): Usuario[] {
         return this.getList()[artistId]
+    }
+
+    enviarMailsASuscriptos(artistId: number, subject: string, message: string, from: string) {
+
+        if(!this.noExisteElArtista(artistId)){
+            this.getList()[artistId].forEach(suscripto => this.mail.mandarMail(suscripto.getEmail(), subject, message, from))
+        }
     }
 }

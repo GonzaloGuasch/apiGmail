@@ -46,7 +46,7 @@ app.post('/api/unsubscribe', (req, res) => {
     }
     try {
         const artist =  `http://unqfy/api/artists/${artistID}`;
-        api_gmail.desucribirAUsuario(email, artist);
+        api_gmail.desucribirAUsuario(email, artistID);
         res.status(200);
 
     }catch (error) {
@@ -57,6 +57,19 @@ app.post('/api/unsubscribe', (req, res) => {
 });
 
 app.post('api/notify', (req, res) => {
+    const artistId = req.params.artistID;
+    const subject = req.params.subject;
+    const message = req.params.message;
+    const from    = req.params.from;
+
+    try{
+        const artist =  `http://unqfy/api/artists/${artistId}`;
+        api_gmail.enviarMailsASuscriptos(artistId, subject, message, from);
+        res.status(200)
+
+    }catch (error) {
+
+    }
 
 });
 
