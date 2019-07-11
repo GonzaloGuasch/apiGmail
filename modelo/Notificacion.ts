@@ -1,4 +1,4 @@
-import {Usuario} from "./Usuario.js";
+import {Usuario} from "./Usuario";
 import {AdministradorDeMail} from "./AdministradorDeMail";
 
 export class Notificacion {
@@ -10,7 +10,6 @@ export class Notificacion {
         this.listOfSubscriptions = {};
         this.mail = new AdministradorDeMail();
     }
-
 
     cantidadUsuarioSuscriptos(): number {
         const allValues = Object.values(this.getList());
@@ -26,6 +25,8 @@ export class Notificacion {
         const allKeys = Object.keys(this.getList());
         return !allKeys.includes(idArtista.toString())
     }
+
+
 
     suscribirAUsuario(usuario: Usuario, artistId: number) {
 
@@ -57,7 +58,12 @@ export class Notificacion {
     }
 
     borrarTodasLasSuscripcionesPara(artistId: number): void {
-        this.getList()[artistId] = [];
+
+        if(this.noExisteElArtista(artistId)) {
+            throw new Error('No existe el artista');
+        }else {
+            this.getList()[artistId] = [];
+        }
     }
 
     todasLasSuscripcionesDe(artistId: number): Usuario[] {

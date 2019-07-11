@@ -32,7 +32,7 @@ export class AdministradorDeMail{
     mandarMail(email: string, subject: string, message: string, from: string) {
         this.gmailClient.users.messages.send(
             {
-                userId: 'gmailClient',
+                userId: 'unqFy',
                 requestBody: {
                     raw: this.crearMailCon(subject, email, message, from),
                 },
