@@ -3,8 +3,8 @@ const promisify = require('util').promisify;
 const {google} = require('googleapis');
 const readFile = promisify(fs.readFile);
 
-const CREDENTIALS_PATH: string = 'credentials.json';
-const TOKEN_PATH: string = 'token.json';
+import * as CREDENTIALS_PATH from '../gmail-tools/send-mail-example/credentials.json';
+import * as TOKEN_PATH from '../gmail-tools/send-mail-example/token.json';
 
 
 export function getGmailClient() {
@@ -23,15 +23,12 @@ function makeCredentials(credentials: string, token: string) :any{
 }
 
 function getOAuthClient(credentials: any): any {
-    // @ts-ignore
-    oAuth2Client = new google.auth.OAuth2(
+    const oAuth2Client = new google.auth.OAuth2(
         credentials.params.client_id,
         credentials.params.client_secret,
         credentials.params.redirect_uris[0]
     );
-    // @ts-ignore
     oAuth2Client.setCredentials(credentials.token);
-    // @ts-ignore
     return oAuth2Client;
 }
   

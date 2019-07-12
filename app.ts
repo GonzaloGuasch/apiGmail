@@ -32,7 +32,7 @@ app.post('/api/subscribe', (req: any, res: any) => {
 
     try {
         const artist =  `http://unqfy/api/artists/${artistID}`;
-        api_gmail.suscribirAUsuario(email, artistID);
+        api_gmail.suscribirAUsuario(email, artist.id);
         res.status(200);
 
     }catch (error) {
@@ -60,7 +60,7 @@ app.post('/api/unsubscribe', (req, res) => {
 
         try {
             const artist = `http://unqfy/api/artists/${artistID}`;
-            api_gmail.desucribirAUsuario(email, artistID);
+            api_gmail.desucribirAUsuario(email, artist.id);
             res.status(200);
 
         } catch (error) {
@@ -90,7 +90,7 @@ app.post('api/notify', (req, res) => {
     }
     try{
         const artist =  `http://unqfy/api/artists/${artistId}`;
-        api_gmail.enviarMailsASuscriptos(artistId, subject, message, from);
+        api_gmail.enviarMailsASuscriptos(artist.id, subject, message, from);
         res.status(200)
 
     }catch (error) {
@@ -117,7 +117,7 @@ app.get('/api/subscriptions?:artistId', (req, res) => {
     }
     try{
         const artist =  `http://unqfy/api/artists/${artistId}`;
-        const todasLasSuscripciones = api_gmail.todasLasSuscripcionesDe(artistId);
+        const todasLasSuscripciones = api_gmail.todasLasSuscripcionesDe(artist.id);
 
         res.status(200);
         res.send({
@@ -145,9 +145,9 @@ app.delete('/api/subscriptions', (req, res) => {
         });
         return
     }
-    try{
+    try{|
         const artist =  `http://unqfy/api/artists/${artistId}`;
-        api_gmail.borrarTodasLasSuscripcionesPara(artistId);
+        api_gmail.borrarTodasLasSuscripcionesPara(artist.id);
         res.status(200);
 
     }catch (error) {

@@ -4,11 +4,11 @@ import {AdministradorDeMail} from "./AdministradorDeMail";
 export class Notificacion {
 
     private listOfSubscriptions: {[artist: number]: Usuario[]};
-    private mail: AdministradorDeMail;
+    private administradorDeMail: AdministradorDeMail;
 
     constructor(){
         this.listOfSubscriptions = {};
-        this.mail = new AdministradorDeMail();
+        this.administradorDeMail = new AdministradorDeMail();
     }
 
     cantidadUsuarioSuscriptos(): number {
@@ -45,7 +45,7 @@ export class Notificacion {
     desucribirAUsuario(usuario: Usuario, idArtista: number) {
 
         if(this.noExisteElArtista(idArtista)){
-            throw new Error('el artista no existe');
+            throw new Error('el artista no existe en el sistema');
         }
         if(this.usuarioEstaSuscripto(idArtista, usuario)) {
             const index = this.getList()[idArtista].indexOf(usuario, 0);
@@ -57,10 +57,10 @@ export class Notificacion {
 
     }
 
-    borrarTodasLasSuscripcionesPara(artistId: number): void {
+    borrarTodasLasSuscripcionesPara(artistId: number) {
 
         if(this.noExisteElArtista(artistId)) {
-            throw new Error('No existe el artista');
+            throw new Error('No existe el artista en el sistema');
         }else {
             this.getList()[artistId] = [];
         }
@@ -73,7 +73,10 @@ export class Notificacion {
     enviarMailsASuscriptos(artistId: number, subject: string, message: string, from: string) {
 
         if(!this.noExisteElArtista(artistId)){
-            this.getList()[artistId].forEach(suscripto => this.mail.mandarMail(suscripto.getEmail(), subject, message, from))
+            this.getList()[artistId].forEach(suscripto => this.administradorDeMail.mandarMail(suscripto.getEmail(), subject, message, from))
+        }
+        else{
+            throw new Error('El artista no existe ');
         }
     }
 }
