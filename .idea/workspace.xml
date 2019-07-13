@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9abb3ed0-2141-427f-a4d6-f1cd4a828b5e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gmail-tools/send-mail-example/credentials.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gmail-tools/send-mail-example/token.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_secret.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmail-tools/get-token/token.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmail-tools/send-mail-example/gmailClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gmail-tools/send-mail-example/gmailClient.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/modelo/Notificacion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/modelo/Notificacion.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mocha/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mocha/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/Test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modelo/Notificacion.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="47" column="28" lean-forward="true" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="64" />
+            <state relative-caret-position="-560">
+              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -37,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/Test.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12">
-              <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+            <state relative-caret-position="-577">
+              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
               <folding>
                 <element signature="e#1#31#0" expanded="true" />
               </folding>
@@ -53,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/modelo/AdministradorDeMail.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="74" lean-forward="true" selection-start-column="30" selection-end-column="74" />
+              <caret column="74" selection-start-column="30" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -62,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/gmail-tools/send-mail-example/gmailClient.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="e#153#239#0" expanded="true" />
               </folding>
@@ -89,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="92" column="34" lean-forward="true" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
+            <state relative-caret-position="30">
+              <caret line="94" column="4" lean-forward="true" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -130,10 +123,10 @@
         <option value="$PROJECT_DIR$/gmail-tools/get-token/index.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/main.js" />
-        <option value="$PROJECT_DIR$/app.ts" />
         <option value="$PROJECT_DIR$/gmail-tools/send-mail-example/gmailClient.ts" />
-        <option value="$PROJECT_DIR$/modelo/Notificacion.ts" />
         <option value="$PROJECT_DIR$/test/Test.ts" />
+        <option value="$PROJECT_DIR$/modelo/Notificacion.ts" />
+        <option value="$PROJECT_DIR$/app.ts" />
       </list>
     </option>
   </component>
@@ -341,7 +334,7 @@
       <option name="presentableId" value="Default" />
       <updated>1562610588161</updated>
       <workItem from="1562610591007" duration="9213000" />
-      <workItem from="1562693338551" duration="22055000" />
+      <workItem from="1562693338551" duration="26283000" />
     </task>
     <servers />
   </component>
@@ -378,7 +371,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31268000" />
+    <option name="totallyTimeSpent" value="35496000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -393,13 +386,13 @@
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24795234" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24795234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27850163" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27850163" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -408,7 +401,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.32954547" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.68566775" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33876222" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -522,16 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="92" column="34" lean-forward="true" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gmail-tools/send-mail-example/token.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -541,9 +524,19 @@
     <entry file="file://$PROJECT_DIR$/gmail-tools/send-mail-example/gmailClient.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="e#153#239#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-577">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="e#1#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -551,26 +544,26 @@
     <entry file="file://$PROJECT_DIR$/modelo/AdministradorDeMail.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="74" lean-forward="true" selection-start-column="30" selection-end-column="74" />
+          <caret column="74" selection-start-column="30" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modelo/Notificacion.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="47" column="28" lean-forward="true" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="64" />
+        <state relative-caret-position="-560">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/Test.ts">
+    <entry file="file://$PROJECT_DIR$/app.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        <state relative-caret-position="30">
+          <caret line="94" column="4" lean-forward="true" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
           <folding>
-            <element signature="e#1#31#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>

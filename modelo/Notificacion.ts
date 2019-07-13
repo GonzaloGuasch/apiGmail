@@ -26,8 +26,6 @@ export class Notificacion {
         return !allKeys.includes(idArtista.toString())
     }
 
-
-
     suscribirAUsuario(usuario: Usuario, artistId: number) {
 
         if (this.noExisteElArtista(artistId)) {
