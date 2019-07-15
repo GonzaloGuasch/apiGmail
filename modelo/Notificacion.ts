@@ -1,9 +1,8 @@
-import {Usuario} from "./Usuario";
 import {AdministradorDeMail} from "./AdministradorDeMail";
 
 export class Notificacion {
 
-    private listOfSubscriptions: {[artist: number]: Usuario[]};
+    private listOfSubscriptions: {[artist: number]: string[]};
     private administradorDeMail: AdministradorDeMail;
 
     constructor(){
@@ -13,11 +12,11 @@ export class Notificacion {
 
     cantidadUsuarioSuscriptos(): number {
         const allValues = Object.values(this.getList());
-        let res: Usuario[] = [];
+        let res: string[] = [];
         allValues.forEach(value => res = res.concat(value));
         return res.length;
     }
-    getList(): {[artist: string]: Usuario[]} {
+    getList(): {[artist: string]: string[]} {
         return this.listOfSubscriptions;
     }
 
@@ -26,31 +25,31 @@ export class Notificacion {
         return !allKeys.includes(idArtista.toString())
     }
 
-    suscribirAUsuario(usuario: Usuario, artistId: number) {
+    suscribirAUsuario(mailDeusuario: string, artistId: number) {
 
         if (this.noExisteElArtista(artistId)) {
-            this.getList()[artistId] = [usuario];
+            this.getList()[artistId] = [mailDeusuario];
         }
         else {
-            this.getList()[artistId].push(usuario)
+            this.getList()[artistId].push(mailDeusuario)
         }
     }
 
-    usuarioEstaSuscripto(idArtista: number, usuario: Usuario): boolean{
-        return this.getList()[idArtista].includes(usuario);
+    usuarioEstaSuscripto(idArtista: number, mailDeusuario: string): boolean{
+        return this.getList()[idArtista].includes(mailDeusuario);
     }
 
-    desucribirAUsuario(usuario: Usuario, idArtista: number) {
+    desucribirAUsuario(mailDeusuario: string, idArtista: number) {
 
         if(this.noExisteElArtista(idArtista)){
             throw new Error('el artista no existe en el sistema');
         }
-        if(this.usuarioEstaSuscripto(idArtista, usuario)) {
-            const index = this.getList()[idArtista].indexOf(usuario, 0);
+        if(this.usuarioEstaSuscripto(idArtista, mailDeusuario)) {
+            const index = this.getList()[idArtista].indexOf(mailDeusuario, 0);
             this.getList()[idArtista].splice(index);
         }
         else {
-            throw  new Error('No se puede eliminar un usuario que no este suscripto');
+            throw  new Error('No se puede eliminar un mailDeusuario que no este suscripto');
         }
 
     }
@@ -64,14 +63,16 @@ export class Notificacion {
         }
     }
 
-    todasLasSuscripcionesDe(artistId: number): Usuario[] {
+    todasLasSuscripcionesDe(artistId: number): string[] {
         return this.getList()[artistId]
     }
 
-    enviarMailsASuscriptos(artistId: number, subject: string, message: string, from: string) {
+    async enviarMailsASuscriptos(artistId: number, subject: string, message: string, from: string) {
 
         if(!this.noExisteElArtista(artistId)){
-            this.getList()[artistId].forEach(suscripto => this.administradorDeMail.mandarMail(suscripto.getEmail(), subject, message, from))
+            const promises: Promise<any>[] = [];
+            this.getList()[artistId].forEach( suscripto => promises.push(this.administradorDeMail.mandarMail(suscripto, subject, message, from)))
+            await Promise.all(promises)
         }
         else{
             throw new Error('El artista no existe ');

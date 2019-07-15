@@ -29,10 +29,10 @@ export class AdministradorDeMail{
 
         return encodedMessage;
      }
-    mandarMail(email: string, subject: string, message: string, from: string) {
-        this.gmailClient.users.messages.send(
+    async mandarMail(email: string, subject: string, message: string, from: string) {
+        await this.gmailClient.users.messages.send(
             {
-                userId: 'unqFy',
+                userId: 'me',
                 requestBody: {
                     raw: this.crearMailCon(subject, email, message, from),
                 },

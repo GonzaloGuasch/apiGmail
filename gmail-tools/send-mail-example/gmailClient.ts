@@ -1,15 +1,16 @@
-const fs = require('fs');
-const promisify = require('util').promisify;
-const {google} = require('googleapis');
+import fs from 'fs';
+import {google} from 'googleapis';
+import util from 'util';
+const promisify = util.promisify;
 const readFile = promisify(fs.readFile);
 
-import * as CREDENTIALS_PATH from '../gmail-tools/send-mail-example/credentials.json';
-import * as TOKEN_PATH from '../gmail-tools/send-mail-example/token.json';
-
+const CREDENTIALS_PATH = __dirname + '/credentials.json';
+const TOKEN_PATH = __dirname + '/token.json';
 
 export function getGmailClient() {
     const credentials = fs.readFileSync(CREDENTIALS_PATH);
     const token = fs.readFileSync(TOKEN_PATH);
+    // @ts-ignore
     const oauthClient = getOAuthClient(makeCredentials(credentials, token));
 
     return google.gmail({version: 'v1', auth: oauthClient});
