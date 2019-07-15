@@ -173,7 +173,7 @@ app.post('/api/notify', async (req: any, res: any) => {
                 errorCode: 'RESOURCE_NOT_FOUND'
             });
         }else {
-            console.log(error);
+
             res.status(500);
             res.send({
                 status: 500,
