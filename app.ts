@@ -12,8 +12,10 @@ const PORT = 3032;
 const api_gmail = new Notificacion();
 const app = express();
 
-app.use(bodyParser());
+
 app.use(cors());
+app.use(express.urlencoded());
+app.use(bodyParser());
 
 
 app.post('/api/subscribe', async (req: any, res: any) => {
@@ -137,12 +139,13 @@ app.delete('/api/subscriptions', async (req, res) => {
 
 });
 
-app.post('/api/notify',async (req: any, res: any) => {
-    const artistId = req.params.artistID;
-    const subject = req.params.subject;
-    const message = req.params.message;
-    const from = req.params.from;
-    console.log(req.params);
+app.post('/api/notify', async (req: any, res: any) => {
+    const artistId = req.body.artistID;
+    const subject = req.body.subject;
+    const message = req.body.message;
+    const from = req.body.from;
+
+
     if (!artistId || !subject || !message || !from) {
         res.status(400);
         res.send({
@@ -152,6 +155,7 @@ app.post('/api/notify',async (req: any, res: any) => {
         return
     }
     try {
+
         const artistResponseString = await requestPromise.get(`${process.env.BASE_URL}${artistId}`);
         const artistResponse = JSON.parse(artistResponseString);
         await api_gmail.enviarMailsASuscriptos(artistResponse.id, subject, message, from);
@@ -160,17 +164,16 @@ app.post('/api/notify',async (req: any, res: any) => {
             status: 200,
             errorCode: 'Succeeded'
         });
-        res.end();
     }
     catch (error) {
-        if(error.statusCode === 404) {
-            console.log(error);
+        if(error.name === 'RequestError') {
             res.status(404);
             res.send({
                 status: 404,
                 errorCode: 'RESOURCE_NOT_FOUND'
             });
         }else {
+            console.log(error);
             res.status(500);
             res.send({
                 status: 500,

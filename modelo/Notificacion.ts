@@ -68,7 +68,6 @@ export class Notificacion {
     }
 
     async enviarMailsASuscriptos(artistId: number, subject: string, message: string, from: string) {
-
         if(!this.noExisteElArtista(artistId)){
             const promises: Promise<any>[] = [];
             this.getList()[artistId].forEach( suscripto => promises.push(this.administradorDeMail.mandarMail(suscripto, subject, message, from)))
