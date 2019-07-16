@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 
-const PORT = 3032;
+const PORT = process.env.PUERTO;
 const api_gmail = new Notificacion();
 const app = express();
 
